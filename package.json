@@ -1,0 +1,28 @@
+{
+  "name": "fs-ads",
+  "version": "1.0.0",
+  "description": "Node.js module to manipulate NTFS Alternate Data Stream (ADS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juncaixinchi/fs-ads.git"
+  },
+  "keywords": [
+    "ADS",
+    "Alternate Data Stream",
+    "NTFS",
+    "xattr"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juncaixinchi/fs-ads/issues"
+  },
+  "homepage": "https://github.com/juncaixinchi/fs-ads#readme",
+  "os": [
+    "win32"
+  ]
+}
