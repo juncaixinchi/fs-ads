@@ -21,19 +21,23 @@ const validateArgument = (key, val) => {
   }
 }
 
-exports.get = (path, stream, cb) => {
+exports.get = (path, stream, cb, cyrillic = false) => {
   path = validateArgument('path', path)
   stream = validateArgument('stream', stream)
   cb = validateArgument('cb', cb)
 
-  fs.readFile(`${path}:${stream}`, { encoding: 'utf-8' }, cb)
+  if(cyrillic) 
+    fs.readFile(`${path}:${stream}`, cb)
+  else
+    fs.readFile(`${path}:${stream}`, { encoding: 'utf-8' }, cb)
 }
 
-exports.getSync = (path, stream) => {
+exports.getSync = (path, stream, cyrillic = false) => {
   path = validateArgument('path', path)
   stream = validateArgument('stream', stream)
 
-  return fs.readFileSync(`${path}:${stream}`, { encoding: 'utf-8' })
+  return cyrillic ? fs.readFileSync(`${path}:${stream}`) : 
+    fs.readFileSync(`${path}:${stream}`, { encoding: 'utf-8' })
 }
 
 exports.set = (path, stream, value, cb) => {
