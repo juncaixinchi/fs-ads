@@ -22,7 +22,7 @@ const ads = require('fs-ads')
 
 ## API
 
-### ads.get(path, streamName, cb)
+### ads.get(path, streamName, cb, cyrillic)
 
 Get Alternate Data Stream `streamName` from file at `path`.
 
@@ -30,7 +30,9 @@ Get Alternate Data Stream `streamName` from file at `path`.
 
 `cb` is a callback that will be called with `(err, val)`.
 
-### ads.getSync(path, streamName)
+`cyrillic` is a boolean variable, that allows you to get stream without any specified encoding. It helps you to work correctly with cyrillic character, because if you will specify `utf-8` encoding, it will corrupt cyrillic data.
+
+### ads.getSync(path, streamName, cyrillic)
 
 Synchronous version of `ads.get`
 
