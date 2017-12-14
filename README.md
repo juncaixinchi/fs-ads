@@ -22,27 +22,40 @@ const ads = require('fs-ads')
 
 ## API
 
-### ads.get(path, streamName, cb)
+### ads.get(path, streamName[, options], cb)
 
 Get Alternate Data Stream `streamName` from file at `path`.
 
-`streamName` is a string that will be the file name of 
+`options` is an object that used to set the `encoding` of ads. The default `encoding` is `utf-8`. You can set some custom [encoding](https://nodejs.org/docs/latest/api/buffer.html#buffer_buffers_and_character_encodings).
+
+```js
+options = { encoding: 'utf-8' } // default
+options = { encoding: 'ascii' } // use ascii
+options = { encoding: null } // the raw buffer is returned
+```
 
 `cb` is a callback that will be called with `(err, val)`.
 
-### ads.getSync(path, streamName)
+### ads.getSync(path, streamName[, options])
 
 Synchronous version of `ads.get`
 
-### ads.set(path, streamName, value, cb)
+### ads.set(path, streamName, value[, options], cb)
 
 Set Alternate Data Stream `streamName` to `value` on file at `path`.
 
 `value` can be either a string or a `Buffer`.
 
+`options` is an object that used to set the `encoding` of ads. The encoding option is ignored if data is a `Buffer`. It defaults to `utf-8`.
+
+```js
+options = { encoding: 'utf-8' } // default
+options = { encoding: 'hex' } // use hex
+```
+
 `cb` is a callback that will be called with `(err)`.
 
-### ads.setSync(path, streamName, value)
+### ads.setSync(path, streamName[, options], value)
 
 Synchronous version of `ads.set`
 
